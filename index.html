@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Nellie Norton</title>
+    <title>About</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body, html {
             height: 100%;
@@ -30,11 +31,16 @@
             min-height: 100vh;
         }
         .content {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.5); /* Make the content semi-transparent */
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         h1 {
             color: #2c3e50;
@@ -42,6 +48,7 @@
             padding-bottom: 15px;
             font-size: 2.5em;
             text-align: center;
+            margin-bottom: 30px;
         }
         .profile-pic {
             width: 200px;
@@ -51,12 +58,18 @@
             margin: 0 auto 30px;
             display: block;
             border: 5px solid #3498db;
-            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
+            transition: all 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(52, 152, 219, 0.9);
         }
         p {
-            font-size: 1.1em;
-            text-align: justify;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
         }
         .social-links {
             text-align: center;
@@ -66,13 +79,51 @@
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #3498db;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
         }
         .social-links a:hover {
             background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        .social-links i {
+            margin-right: 8px;
+        }
+        .social-links a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 200px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #3498db transparent transparent transparent;
         }
     </style>
 </head>
@@ -81,9 +132,11 @@
         <div class="content">
             <img src="https://avatars.githubusercontent.com/u/175468515?v=4" alt="Nellie Norton" class="profile-pic">
             <h1>Nellie Norton</h1>
-            <p>Hello! World</p>
             <div class="social-links">
-                <a href="#">GitHub</a>
+                <a href="https://nellie00.github.io"><i class="fab fa-github"></i>GitHub</a>
+                <a href="#"><i class="fas fa-envelope"></i>Email
+                    <span class="tooltip">nenorton@my.lonestar.edu</span>
+                </a>
             </div>
         </div>
     </div>
